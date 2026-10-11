@@ -2,7 +2,7 @@ const http = require('http');
 const url = require('url');
 const fs = require('fs');
 const path = require('path');
-
+//bu bir nottur
 const PORT = 2022;
 const DEFAULT_TOKEN = '1bd63c25cf34eb37d85458575988f2ff7ba41658';
 
@@ -44,7 +44,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   // --- Mock SMS API (aman-gate.com compatible) ---
-    if (method === 'POST' && (parsed.pathname === '/api/otp/send' || parsed.pathname === '/api/otp/send/')) {
+  if (method === 'POST' && (parsed.pathname === '/api/otp/send' || parsed.pathname === '/api/otp/send/')) {
     const body = await parseBody(req);
     const auth = req.headers['authorization'] || '';
 
@@ -94,7 +94,7 @@ const server = http.createServer(async (req, res) => {
   }
 
   // --- Verify OTP ---
-    if (method === 'POST' && (parsed.pathname === '/api/otp/verify' || parsed.pathname === '/api/otp/verify/')) {
+  if (method === 'POST' && (parsed.pathname === '/api/otp/verify' || parsed.pathname === '/api/otp/verify/')) {
     const body = await parseBody(req);
     const { gsm, code } = body;
 
